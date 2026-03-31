@@ -16,12 +16,12 @@ import type {
 class SecurityAPI {
   /**
    * Get All Security Alerts
-   * GET /api/admin/security/security-alerts
+   * GET /admin/security/security-alerts
    */
   async getSecurityAlerts(params?: GetSecurityAlertsParams): Promise<GetSecurityAlertsResponse> {
     try {
       const response = await apiClient.get<ApiResponse<GetSecurityAlertsResponse>>(
-        '/api/admin/security/security-alerts',
+        '/admin/security/security-alerts',
         { params }
       );
       console.log('Security alerts response:', response.data);
@@ -86,12 +86,12 @@ class SecurityAPI {
 
   /**
    * Get Frozen Accounts List
-   * GET /api/admin/security/frozen-accounts
+   * GET /admin/security/frozen-accounts
    */
   async getFrozenAccounts(params?: GetFrozenAccountsParams): Promise<GetFrozenAccountsResponse> {
     try {
       const response = await apiClient.get<ApiResponse<GetFrozenAccountsResponse>>(
-        '/api/admin/security/frozen-accounts',
+        '/admin/security/frozen-accounts',
         { params }
       );
       return response.data.data!;
@@ -102,11 +102,11 @@ class SecurityAPI {
 
   /**
    * Unfreeze User Account
-   * POST /api/admin/security/unfreeze-account/:userId
+   * POST /admin/security/unfreeze-account/:userId
    */
   async unfreezeAccount(userId: string, data: UnfreezeAccountRequest): Promise<void> {
     try {
-      await apiClient.post(`/api/admin/security/unfreeze-account/${userId}`, data);
+      await apiClient.post(`/admin/security/unfreeze-account/${userId}`, data);
     } catch (error) {
       throw new Error(handleApiError(error));
     }
@@ -114,12 +114,12 @@ class SecurityAPI {
 
   /**
    * Resolve Security Alert
-   * PUT /api/admin/security/security-alerts/:alertId/resolve
+   * PUT /admin/security/security-alerts/:alertId/resolve
    */
   async resolveAlert(alertId: string, data: ResolveAlertRequest): Promise<SecurityAlert> {
     try {
       const response = await apiClient.put<ApiResponse<SecurityAlert>>(
-        `/api/admin/security/security-alerts/${alertId}/resolve`,
+        `/admin/security/security-alerts/${alertId}/resolve`,
         data
       );
       return response.data.data!;

@@ -15,12 +15,12 @@ import type {
 class ApplicationsAPI {
   /**
    * Get All Applications
-   * GET /api/applications/admin/all
+   * GET /applications/admin/all
    */
   async getAllApplications(params?: GetApplicationsParams): Promise<GetApplicationsResponse> {
     try {
       const response = await apiClient.get<ApiResponse<GetApplicationsResponse>>(
-        '/api/applications/admin/all',
+        '/applications/admin/all',
         { params }
       );
       
@@ -62,12 +62,12 @@ class ApplicationsAPI {
 
   /**
    * Get Application Details
-   * GET /api/applications/admin/details/:applicationId
+   * GET /applications/admin/details/:applicationId
    */
   async getApplicationDetails(applicationId: string): Promise<Application> {
     try {
       const response = await apiClient.get<ApiResponse<Application>>(
-        `/api/applications/admin/details/${applicationId}`
+        `/applications/admin/details/${applicationId}`
       );
       return response.data.data!;
     } catch (error) {
@@ -77,7 +77,7 @@ class ApplicationsAPI {
 
   /**
    * Update Application Status
-   * PUT /api/applications/admin/update-status/:applicationId
+   * PUT /applications/admin/update-status/:applicationId
    */
   async updateApplicationStatus(
     applicationId: string,
@@ -85,7 +85,7 @@ class ApplicationsAPI {
   ): Promise<Application> {
     try {
       const response = await apiClient.put<ApiResponse<Application>>(
-        `/api/applications/admin/update-status/${applicationId}`,
+        `/applications/admin/update-status/${applicationId}`,
         data
       );
       return response.data.data!;
@@ -96,12 +96,12 @@ class ApplicationsAPI {
 
   /**
    * Get Application Statistics
-   * GET /api/applications/admin/stats
+   * GET /applications/admin/stats
    */
   async getApplicationStats(): Promise<ApplicationStats> {
     try {
       const response = await apiClient.get<ApiResponse<ApplicationStats>>(
-        '/api/applications/admin/stats'
+        '/applications/admin/stats'
       );
       
       console.log('Application stats response:', response.data);
@@ -144,12 +144,12 @@ class ApplicationsAPI {
 
   /**
    * Trigger Nokia Verification Manually
-   * POST /api/applications/admin/verify-nokia/:applicationId
+   * POST /applications/admin/verify-nokia/:applicationId
    */
   async triggerNokiaVerification(applicationId: string): Promise<NokiaVerification> {
     try {
       const response = await apiClient.post<ApiResponse<NokiaVerification>>(
-        `/api/applications/admin/verify-nokia/${applicationId}`
+        `/applications/admin/verify-nokia/${applicationId}`
       );
       return response.data.data!;
     } catch (error) {
@@ -159,12 +159,12 @@ class ApplicationsAPI {
 
   /**
    * Get Nokia Verification Status
-   * GET /api/applications/admin/nokia-status/:applicationId
+   * GET /applications/admin/nokia-status/:applicationId
    */
   async getNokiaVerificationStatus(applicationId: string): Promise<NokiaVerification> {
     try {
       const response = await apiClient.get<ApiResponse<NokiaVerification>>(
-        `/api/applications/admin/nokia-status/${applicationId}`
+        `/applications/admin/nokia-status/${applicationId}`
       );
       return response.data.data!;
     } catch (error) {

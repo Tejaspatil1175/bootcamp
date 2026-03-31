@@ -14,14 +14,14 @@ import type {
 class TransactionsAPI {
   /**
    * Get Flagged/Blocked Transactions
-   * GET /api/transactions/admin/flagged
+   * GET /transactions/admin/flagged
    */
   async getFlaggedTransactions(
     params?: GetFlaggedTransactionsParams
   ): Promise<GetFlaggedTransactionsResponse> {
     try {
       const response = await apiClient.get<ApiResponse<GetFlaggedTransactionsResponse>>(
-        '/api/transactions/admin/flagged',
+        '/transactions/admin/flagged',
         { params }
       );
       return response.data.data!;
@@ -32,7 +32,7 @@ class TransactionsAPI {
 
   /**
    * Review Transaction (Approve/Reject)
-   * PUT /api/transactions/admin/:transactionId/review
+   * PUT /transactions/admin/:transactionId/review
    * 
    * IMPORTANT: Use TRANSACTION ID (like TXN_20251008_1234), NOT Application ID
    */
@@ -42,7 +42,7 @@ class TransactionsAPI {
   ): Promise<Transaction> {
     try {
       const response = await apiClient.put<ApiResponse<Transaction>>(
-        `/api/transactions/admin/${transactionId}/review`,
+        `/transactions/admin/${transactionId}/review`,
         data
       );
       return response.data.data!;
@@ -53,12 +53,12 @@ class TransactionsAPI {
 
   /**
    * Get Transaction Statistics
-   * GET /api/transactions/admin/stats
+   * GET /transactions/admin/stats
    */
   async getTransactionStats(): Promise<TransactionStats> {
     try {
       const response = await apiClient.get<ApiResponse<TransactionStats>>(
-        '/api/transactions/admin/stats'
+        '/transactions/admin/stats'
       );
       return response.data.data!;
     } catch (error) {

@@ -13,11 +13,11 @@ import type {
 class AuthAPI {
   /**
    * Admin Login
-   * POST /api/admin/login
+   * POST /admin/login
    */
   async login(credentials: AdminLoginRequest): Promise<AdminLoginResponse> {
     try {
-      const response = await apiClient.post<AdminLoginResponse>('/api/admin/login', credentials);
+      const response = await apiClient.post<AdminLoginResponse>('/admin/login', credentials);
       
       // Store token and admin info in localStorage
       if (response.data.token) {
@@ -33,11 +33,11 @@ class AuthAPI {
 
   /**
    * Get Admin Profile
-   * GET /api/admin/profile
+   * GET /admin/profile
    */
   async getProfile(): Promise<Admin> {
     try {
-      const response = await apiClient.get<ApiResponse<Admin>>('/api/admin/profile');
+      const response = await apiClient.get<ApiResponse<Admin>>('/admin/profile');
       return response.data.data!;
     } catch (error) {
       throw new Error(handleApiError(error));
@@ -46,11 +46,11 @@ class AuthAPI {
 
   /**
    * Register Super Admin (Initial Setup)
-   * POST /api/admin/register-super-admin
+   * POST /admin/register-super-admin
    */
   async registerSuperAdmin(data: RegisterSuperAdminRequest): Promise<AdminLoginResponse> {
     try {
-      const response = await apiClient.post<AdminLoginResponse>('/api/admin/register-super-admin', data);
+      const response = await apiClient.post<AdminLoginResponse>('/admin/register-super-admin', data);
       
       // Store token and admin info in localStorage
       if (response.data.token) {

@@ -7,11 +7,11 @@ import type { DashboardStats, ApiResponse } from '../types/api';
 class DashboardAPI {
   /**
    * Get Dashboard Statistics
-   * GET /api/admin/dashboard/stats
+   * GET /admin/dashboard/stats
    */
   async getStats(): Promise<DashboardStats> {
     try {
-      const response = await apiClient.get<ApiResponse<DashboardStats>>('/api/admin/dashboard/stats');
+      const response = await apiClient.get<ApiResponse<DashboardStats>>('/admin/dashboard/stats');
       console.log('Dashboard stats response:', response.data);
       
       // Check if response has data

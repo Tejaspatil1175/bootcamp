@@ -12,11 +12,11 @@ import type {
 class UsersAPI {
   /**
    * Get All Users
-   * GET /api/admin/users
+   * GET /admin/users
    */
   async getUsers(params?: PaginationParams): Promise<GetUsersResponse> {
     try {
-      const response = await apiClient.get<ApiResponse<GetUsersResponse>>('/api/admin/users', {
+      const response = await apiClient.get<ApiResponse<GetUsersResponse>>('/admin/users', {
         params,
       });
       
@@ -50,11 +50,11 @@ class UsersAPI {
 
   /**
    * Get User Details by ID
-   * GET /api/admin/users/:userId
+   * GET /admin/users/:userId
    */
   async getUserById(userId: string): Promise<User> {
     try {
-      const response = await apiClient.get<ApiResponse<User>>(`/api/admin/users/${userId}`);
+      const response = await apiClient.get<ApiResponse<User>>(`/admin/users/${userId}`);
       return response.data.data!;
     } catch (error) {
       throw new Error(handleApiError(error));
@@ -63,7 +63,7 @@ class UsersAPI {
 
   /**
    * Update User Account Status
-   * PUT /api/admin/users/:userId/status
+   * PUT /admin/users/:userId/status
    */
   async updateUserStatus(
     userId: string,
@@ -72,7 +72,7 @@ class UsersAPI {
   ): Promise<User> {
     try {
       const response = await apiClient.put<ApiResponse<User>>(
-        `/api/admin/users/${userId}/status`,
+        `/admin/users/${userId}/status`,
         { status, reason }
       );
       return response.data.data!;
