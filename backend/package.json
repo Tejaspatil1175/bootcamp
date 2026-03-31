@@ -9,6 +9,7 @@
     "setup": "node setup.js",
     "test:nokia": "node test-nokia.js",
     "test:nokia-fixed": "node test-nokia-fixed.js"
+    ,"build": "echo \"No build step defined for backend.\""
   },
   "author": "",
   "license": "ISC",
