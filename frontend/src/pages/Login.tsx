@@ -78,11 +78,6 @@ const Login = () => {
         <p className="text-muted-foreground mb-2">Login to your account</p>
         
         {/* Test Credentials Info */}
-        <div className="mb-6 p-3 bg-muted/50 rounded-lg text-xs text-muted-foreground max-w-sm">
-        <p className="font-semibold mb-1">Test Account:</p>
-        <p>Email: t2@gmail.com</p>
-        <p>Password: 12345678</p>
-        </div>
 
         {/* Form */}
         <form onSubmit={handleLogin} className="w-full max-w-sm space-y-6">
